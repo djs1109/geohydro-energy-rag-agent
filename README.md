@@ -9,8 +9,7 @@
 [![FastAPI](https://img.shields.io/badge/API-FastAPI-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![Docker](https://img.shields.io/badge/Deploy-Docker_Compose-2496ED?logo=docker&logoColor=white)](https://docs.docker.com/compose/)
 
-> **项目状态**：可在本地通过 Docker Compose 部署并运行。复杂文档解析和跨文档、多方面问题的检索效果仍在持续评估。仓库不包含私有 API Key、模型权重、向量数据库运行数据或原始第三方 PDF。
-
+> **项目状态**：可在本地通过 Docker Compose 部署并运行。复杂文档解析和跨文档、多方面问题的检索效果仍在持续评估。
 ## 项目简介
 
 地质灾害、水文气象和新能源领域的技术规范、算法说明及研究报告篇幅长、术语密集，使用传统关键词检索难以同时获得相关性和完整上下文。本项目将多格式文档解析、混合检索、结构化上下文展开和工具调用整合为可交互的 RAG Agent，支持用户基于自己的技术文档进行问答，并追踪答案的来源文件、页码等信息。
@@ -81,7 +80,7 @@ cd geohydro-energy-rag-agent
 Copy-Item .env.example .env
 ```
 
-然后根据 `compose.yaml` 与应用实际使用的环境变量填写 `.env`，尤其是 `DEEPSEEK_API_KEY`。**不要将 `.env` 提交到 Git。**
+然后根据 `compose.yaml` 与应用实际使用的环境变量填写 `.env`，尤其是 `DEEPSEEK_API_KEY`。
 
 ```bash
 docker compose up -d --build

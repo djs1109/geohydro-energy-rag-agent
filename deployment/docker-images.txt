@@ -1,0 +1,4 @@
+﻿CONTAINER                 REPOSITORY           TAG                 PLATFORM            IMAGE ID            SIZE                CREATED
+agent-learning-qdrant-1   qdrant/qdrant        latest              linux/amd64         9bfc89f9914f        276MB               4 weeks ago
+rag-agent-api             agent-learning-api   latest              linux/amd64         f6cccdaa29e2        9.79GB              5 hours ago
+rag-agent-web             agent-learning-web   latest              linux/amd64         52a795b7d220        825MB               24 hours ago

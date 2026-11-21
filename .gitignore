@@ -1,0 +1,50 @@
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+secrets/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.venv/
+venv/
+data/
+model_cache/
+models/
+originals/
+uploads/
+downloads/
+*.sqlite
+*.sqlite3
+*.db
+*.db-shm
+*.db-wal
+*.safetensors
+*.pt
+*.pth
+*.onnx
+*.bin
+*.pdf
+*.docx
+*.csv
+*.xlsx
+*.zip
+*.log
+.vscode/
+.idea/
+# Qdrant 数据
+qdrant_data/
+
+# 本地评测运行结果
+evaluation_results/
+rag_eval/runs/
+
+# 本地测试生成的数据
+*.tmp
+*.part
+
+# 模型缓存
+.cache/
+huggingface/

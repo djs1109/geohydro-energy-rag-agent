@@ -1,0 +1,3 @@
+﻿agent-learning-api
+agent-learning-web
+qdrant/qdrant:latest

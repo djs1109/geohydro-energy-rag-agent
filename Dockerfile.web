@@ -1,0 +1,23 @@
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+COPY requirements-web.txt .
+COPY pages/ ./pages/
+
+RUN pip install --no-cache-dir \
+    -r requirements-web.txt
+
+COPY streamlit_app.py .
+
+EXPOSE 8501
+
+CMD ["python", "-m", "streamlit", \
+     "run", "streamlit_app.py", \
+     "--server.address=0.0.0.0", \
+     "--server.port=8501", \
+     "--server.headless=true"]

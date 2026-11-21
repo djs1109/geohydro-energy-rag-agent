@@ -1,0 +1,26 @@
+# 默认文本文件统一使用 LF
+* text=auto
+
+# Python、Docker、YAML、Markdown 统一 LF
+*.py text eol=lf
+*.sh text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.md text eol=lf
+Dockerfile* text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.env.example text eol=lf
+
+# Windows 脚本使用 CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+
+# 二进制文件不进行换行符转换
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.pdf binary
+*.zip binary
+*.sqlite binary

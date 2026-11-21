@@ -1,0 +1,51 @@
+
+FROM python:3.11-slim
+
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV HF_HOME=/app/model_cache
+
+# 先复制依赖配置，便于复用 Docker 构建缓存
+COPY requirements-api.txt .
+COPY constraints-api.txt .
+
+# 1. 安装 CPU-only PyTorch
+RUN python -m pip install \
+    --no-cache-dir \
+    --index-url https://download.pytorch.org/whl/cpu \
+    "torch==2.6.0+cpu"
+
+# 2. 使用清华镜像安装其他依赖
+# constraints 防止 PyTorch 被替换
+RUN python -m pip install \
+    --no-cache-dir \
+    --index-url https://pypi.tuna.tsinghua.edu.cn/simple \
+    --constraint constraints-api.txt \
+    -r requirements-api.txt
+
+# 3. 验证依赖和 PyTorch
+RUN python -m pip check && \
+    python -c "import torch; print('Torch:', torch.__version__); print('CUDA:', torch.version.cuda); assert torch.version.cuda is None"
+
+# 4. 最后复制源代码
+COPY rag_core.py .
+COPY api_main.py .
+COPY session_store.py .
+COPY document_ingestion.py .
+COPY document_store.py .
+COPY embedding_manager.py .
+COPY manage_index.py .
+COPY upload_tasks.py .
+COPY structured_chunking.py .
+COPY parent_retrieval.py .
+
+RUN mkdir -p /app/data /app/model_cache
+
+EXPOSE 8000
+
+CMD ["python", "-m", "uvicorn", \
+     "api_main:app", \
+     "--host", "0.0.0.0", \
+     "--port", "8000"]

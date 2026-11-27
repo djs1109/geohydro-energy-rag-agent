@@ -48,3 +48,5 @@ rag_eval/runs/
 # 模型缓存
 .cache/
 huggingface/
+
+notebooks/

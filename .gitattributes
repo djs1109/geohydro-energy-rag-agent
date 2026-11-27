@@ -25,4 +25,5 @@ Dockerfile* text eol=lf
 *.zip binary
 *.sqlite binary
 
+# Exclude Jupyter notebooks from GitHub language statistics
 *.ipynb linguist-detectable=false

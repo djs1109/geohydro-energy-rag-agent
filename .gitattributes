@@ -24,3 +24,5 @@ Dockerfile* text eol=lf
 *.pdf binary
 *.zip binary
 *.sqlite binary
+
+*.ipynb linguist-detectable=false

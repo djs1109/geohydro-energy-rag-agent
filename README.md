@@ -159,8 +159,3 @@ agent-learning/
 - 完善人工标注集、检索指标与引用质量评测
 - 补充演示截图、可复现测试说明与 CI
 
-## 作者与项目地址
-
-GitHub：<https://github.com/djs1109/geohydro-energy-rag-agent>
-
-> **许可说明：** 请在确认全部代码授权与第三方依赖约束后，再选择适用的开源许可证。
